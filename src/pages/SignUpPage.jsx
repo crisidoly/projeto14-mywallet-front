@@ -25,7 +25,7 @@ export default function SignUpPage() {
       return alert("As senhas não coincidem!");
     }
   
-    axios.post(`${process.env.REACT_APP_API_URL}/login`, form)
+    axios.post(`${import.meta.env.VITE_API_URL}}/sign-up`, forms)
   .then((res) => console.log(res.data))
   .catch((err) => console.log(err.response.data));
     navigate("/")
@@ -36,6 +36,7 @@ export default function SignUpPage() {
       <form onSubmit={submitForm}>
         <MyWalletLogo />
         <input
+          data-test="name"
           required
           placeholder="Nome"
           value={form.name}
@@ -44,6 +45,7 @@ export default function SignUpPage() {
           type="text"
         />
         <input
+          data-test="email"
           required
           placeholder="E-mail"
           value={form.email}
@@ -53,6 +55,7 @@ export default function SignUpPage() {
         />
         <input
           required
+          data-test="password"
           placeholder="Senha"
           value={form.password}
           onChange={handleForm}
@@ -63,6 +66,7 @@ export default function SignUpPage() {
         />
         <input
           required
+          data-test="conf-password"
           placeholder="Confirme a senha"
           value={form.confirmPassword}
           onChange={handleForm}
@@ -70,7 +74,7 @@ export default function SignUpPage() {
           type="password"
           autoComplete="new-password"
         />
-        <button type="submit">Cadastrar</button>
+        <button data-test="sign-up-submit" type="submit">Cadastrar</button>
       </form>
 
       <Link to="/">Já tem uma conta? Entre agora!</Link>

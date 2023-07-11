@@ -6,8 +6,8 @@ export default function HomePage() {
   return (
     <HomeContainer>
       <Header>
-        <h1>Olá, Fulano</h1>
-        <BiExit />
+        <h1 data-test="username">Olá, Fulano</h1>
+        <BiExit data-test="logout"/>
       </Header>
 
       <TransactionsContainer>
